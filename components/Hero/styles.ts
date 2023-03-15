@@ -10,7 +10,6 @@ export const StyledHero = styled.section`
     text-transform: uppercase;
     font-size: 3rem;
     text-align: center;
-    color: #2646A6;
   }
 
   & > p {
@@ -38,7 +37,7 @@ export const StyledHero = styled.section`
       text-align: left;
       margin-top: 120px;
       margin-bottom: 0%;
-      font-size: 4rem;
+      font-size: 70px;
     }
 
     & > picture {
@@ -52,7 +51,7 @@ export const StyledHero = styled.section`
     & > p {
       margin-top: 0%;
       max-width: none;
-      font-size: 2rem;
+      font-size: 32px;
       text-align: left;
       align-self: baseline;
     }

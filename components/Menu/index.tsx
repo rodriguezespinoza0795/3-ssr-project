@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { MenuButton, MenuContainer } from "./styles"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
-import { Link } from 'react-router-dom';
 
 export const Menu = () => {
 

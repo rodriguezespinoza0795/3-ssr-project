@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { GalaxiesLayout } from '../components/GalaxiesLayout';
 import { LoadingSpinner } from '../components/LoadingSpinner';
-import { LOADING_STATUS, ERROR_STATUS, useFetchGalaxiesInfo } from '../hooks/useFetchGalaxiesInfo';
 
 const GalaxiesPageWrapper = styled.div`
   display: flex;
@@ -11,12 +10,13 @@ const GalaxiesPageWrapper = styled.div`
   width: calc(100% - 6rem);
 `
 
-export const Galaxies = (props) => {
+export default function Galaxies(props: { galaxies: [] }) {
+
+  const { galaxies } = props
 
   const renderLayout = () => {
-    if (props.galaxies.length === 0) return <LoadingSpinner />
-
-    return <GalaxiesLayout galaxies={props.galaxies} />
+    if (galaxies?.length === 0) return <LoadingSpinner />
+    return <GalaxiesLayout galaxies={galaxies} />
   }
 
   return (
@@ -25,6 +25,12 @@ export const Galaxies = (props) => {
       {renderLayout()}
     </GalaxiesPageWrapper>
   );
+}
+
+Galaxies.getInitialProps = async () =>  {
+  const res = await fetch('https://images-api.nasa.gov/search?q=galaxies')
+  const data = await res.json()
+  return { galaxies: data?.collection?.items }
 }
 
 Galaxies.defaultProps = {
